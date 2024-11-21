@@ -1,0 +1,12 @@
+*.pdf
+referencias/*
+
+# Archivos auxiliares del latex
+*.aux
+*.bbl
+*.blg
+*.fls
+*.log
+*.run.xml
+*.fdb_latexmk
+*.synctex.gz
