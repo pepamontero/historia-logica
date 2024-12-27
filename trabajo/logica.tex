@@ -178,16 +178,61 @@ Existía por tanto un interés en formalizar la lógica de una manera menos comp
 
 Además, sobre conectores lógicos, Ockham escribió lo siguiente: "También debe saberse que el opuesto contradictorio de una proposición copulativa es una proposición disyuntiva compuesta por los contradictorios de las partes de la copulativa"\cite{logicmuseum_ockham}. En lenguaje moderno, esto es $\lnot (A \land B) = \lnot A \lor \lnot B$, es decir, tenemos aquí el precursor de las Leyes de De Morgan.
 
-\subsubsection{Descartes?}
+\subsubsection{Siglo XVII}
+
+Después de Ockham hubo una buena cantidad de innovaciones en lógica, consolidación de las ideas anteriores, con un interés en las falacias y las paradojas, desarrollo de las reglas de inferencia etc.
+
+Puesto que empieza a haber una gran cantidad de innovaciones en muchas direcciones, vamos a centrarnos en aquellas que son especialmente interesantes para este trabajo.
+
+Como hemos comentado antes, empieza a existir un interés por la formalización de la lógica. Esto es de especial interés para este trabajo puesto que, para que sea posible la computación de un objeto, es necesaria su previa formalización. Podemos mencionar a Descartes como un primer paso en esta dirección; aunque no trabajó explícitamente con esta idea, su objetivo en obras como el \textit{Discurso del Método} era clarificar ideas simples y desarollar un método deductivo concreto que pudiera revelar nuevas verdades\cite{wahl2008port}.
+
+LEIBNIZ
+
+La figura más importante que vamos a destacar es Leibniz.
+
+El trabajo de Leibniz en lógica, aunque está realcionado con la teoría de silogismos, tiene como objetivo la construcción de un "cálculo universal" mucho más general. Este cálculo serviría como una herramienta para determinar que inferencias formales son lógicamente validas. Además, Leibniz quería que este cálculo se pudiera aplicar a cualquier proposición para "calcular" su veracidad de una forma puramente mecánica.
+
+Sabemos que Leibniz elaboró varios borradores buscando esta herramienta con intención de publicarlos, pero nunca llegó a estar satisfecho con el resultado y todos sus trabajos sobre lógica se publicaron póstumamente.
+
+El cálculo más importante desarollado por Leibniz es el "álgebra de conceptos". El punto de comienzo de este modelo es la teoría tradicional aristotélica del silogismo. Tomamos las relaciones entre dos conceptos $A$ y $B$ definidas por Aristóteles:
+
+\begin{displayquote}
+    Todo $A$ es un $B$ ($AaB$)\\
+    Ningún $A$ es un $B$ ($AeB$)\\
+    Algún $A$ es un $B$ ($AiB$)\\
+    Algún $A$ no es un $B$ ($AoB$)\\
+\end{displayquote}
+
+En este contexto, vamos a considerar el concepto "no ser $A$" y lo denotamos como $\bar{A}$. Entonces, las expresiones anteriores se pueden escribir solo en términos de "Todo $A$ es un $B$":
+
+\begin{displayquote}
+    Todo $A$ es un $B$ ($AaB$)\\
+    Todo $A$ es un $\bar{B}$ ($AeB$)\\
+    $\lnot$ (Todo $A$ es un $\bar{B}$) ($AiB$)\\
+    $\lnot$ (Todo $A$ es un $B$) ($AoB$)\\
+\end{displayquote}
+
+Además, Leibniz hace los siguientes cambios con respecto a la lógica silogista:
 
 
+\begin{enumerate}
+    \item Obvia la palabra "Todo" y escribe simplemente "$A$ es $B$" en su lugar.
+    \item Considera la "conjunción conceptual" que combina dos conceptos $A$ y $B$ en yuxtaposción $AB$.
+    \item Elimina las restriciones tradicionales relacionadas con el numero de premisas y el número de conceptos en las premisas de un silogismo. Es decir, se considera cualquier tipo de inferencia entre sentencias de la forma "$A$ es $B$", donde $A$ y $B$ pueden ser arbitrariamente complejos.
+\end{enumerate}
 
+El lenguaje resultante se conoce como "álgebra de conceptos" o $L1$. Una posible axiomatización de $L1$ podría hacerse utilizando solo la negación, la conjunción y la relación de contenido ("$A$ es $B$") como operadores conceptuales primitivos.
 
-Aquí voy a hablar de las críticas del trabajo de aristoteles en esta época
+Leibniz hace un estudio extensivo de este sistema, y da una amplia cantidad de propiedades y reglas de inferencia, como por ejemplo la doble negación, la reflexividad y transitividad del contenido, etc.
 
-Aquí paso a hablar de Descartes y Leibniz
+Por otro lado, la lógica de Leibniz alcanza su máxima extensión con su teroía de "coneptos indefinidos", que, aunque incompleta y defectuosa, era suficientemente clara como para recontruirse sin ambiguedades. El sistema resultante tiene algunas diferencias con la lógica de segundo orden que hoy ocnocemos, pero igualmente constituye un avance hacia la formalización de la teoría de cuantificadores.
 
-Por útlimo de esta sección comentar algo de Kant, que creo que también criticó a Aristóteles.
+De la misma forma que el propio Leibniz no estuvo satisfecho con su trabajo, muchos logicistas posteriores criticaron su trabajo y lo consideraron inferior al de Boole. Aunque Lewis Carroll consideró que, aunque su trabajo resultó un primer boceto para la lógica simbólica, era algo positivo que Boole no conociera estas innovaciones, pues las suyas supusieron un mejor resultado. Por otro lado, H. Sauer decidió que el cálculo de Leibniz era imperfecto por "no haberse deshecho del viejo error de que todos los conceptos se pueden construir mediante conjunción de otros conceptos más simples, y de que todas las proposiciones se pueden poner de la forma 'A es B', bajo la influencia aristotélica".
+
+No fue hasta la mitad de los años ochenta que se demostró mediante pruebas estricas que el álgebra de conceptos de Leibniz es equivalente (o isomórgfica) al álgebra de conjuntos de Boole, y que su teoría de "conceptos indefinidos" constituye una impotante anticipación a la teoría moderna de cuantificadores.
+
+Por último, brevemente destacamos a Kant, que sentó las bases de tres puntos estructurales importantes de la lógica moderna: la distinción entre concepto y objeto, la primaciía de la proposición como unidad del análisis lógico y la concepción de la lógica como estudio de la estructura de sistemas lógicos, en lugar de solo la validez de inferencias específicas.
+
 
 \section{Siglos XIX, XX}
 
