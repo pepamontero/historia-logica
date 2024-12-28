@@ -241,9 +241,60 @@ No fue hasta la mitad de los años ochenta que se demostró mediante pruebas est
 Por último, brevemente destacamos a Kant, que sentó las bases de tres puntos estructurales importantes de la lógica moderna: la distinción entre concepto y objeto, la primaciía de la proposición como unidad del análisis lógico y la concepción de la lógica como estudio de la estructura de sistemas lógicos, en lugar de solo la validez de inferencias específicas\cite{tiles2004kant}.
 
 
-\section{Lógica simbólica}
+\section{La matematización de la lógica en el siglo XIX}
 
-La matematización de la lógica? Boole y Frege
+Alrededor del año 1850, la lógica era considerada todavía como parte de la filosofía y no de las matemáticas. Al final del siglo, la lógica se convirtió en la intersección de ambas disciplinas. Quizás el primer autor en iniciar este cambio fue De Morgan, con su estudio sistemático de las relaciones lógicas binarias. Su trabajo hizo crecer el interés de los matemáticos por la lógica, creando una audiencia receptiva para las nuevas propuestas lógicas por parte de George Boole. Fue este último el que tuvo el papel más importante en la asimilación de la lógica en las matemáticas\cite{sanchez2004algebra}.
+
+En 1854, Boole publica su obra \textit{An Investigation of the Laws of Thought on Which are Founded the Mathematical Theories of Logic and Probabilities} o simplemente \textit{The Laws of Thought}\cite{blackburn2005oxford}, en la que Boole pretendía trabajar con problemas lógicos utilizando el siguiente método:
+
+\begin{enumerate}
+    \item Traducir las proposiciones lógicas en ecuaciones válidas.
+    \item Aplicar técnicas algebraicas para resolver estas ecuaciones.
+    \item Traducir la solución obtenida, en la medida de lo posible, al lenguaje original\cite{sanchez2004algebra}.
+\end{enumerate}
+
+Cabe destacar que, aunque este trabajo se diferencia muy evidentemente de aquel de Aristóteles y la lógica de silogismos, Boole explicitamente aceptó esta última en \textit{The Laws of Thought} como "una colección de verdades científicas". Sin embargo, también comentó que era "demasiado incompleto como para formar un sistema en sí mismo".
+
+Como veremos, Boole también respetó la idea de los silogismos divididos en tres términos, uno de los cuales es "central", siendo probablemente el último logicista que utilizó esta estructura.
+
+El objetivo de Boole era, por tanto, preservar los resultados de Aristóteles y a la vez contribuir a su teoría de dos formas. Por un lado, unificar la lógica de silogismos y dotarla de una base algebraico-matemática, y, por otro, ampliarla al incluir más tipos de proposiciones válidas y extender las transformaciones lógicas básicas, de forma que los métodos matemáticos como sustituir iguales por iguales o aplicar la misma operación a ambos lados de una ecuación pudiera utilizarse también en los argumentos silogísticos\cite{boole2003laws}.
+
+\subsection{La lógica algebraica de Boole}
+
+En primer lugar, Boole quiso demostrar que los cuatro conectores de Aristóteles ($a$, $e$, $i$ y $o$) se podían en realidad unificar como uno sólo. Aunque Leibniz había hecho algo parecido, el intento de Boole fue distinto: para él, una proposición del estilo de "\textit{Todo cuadrado es un polígono}" realmente se debería expresar como "\textit{Todo-cuadrado es-exactamente-igual-que algún-polígono}"\footnote{Para entender esto, es más sencillo visualizarlo en lenguaje moderno: "Todo cuadrado ($C$) es un polígono ($P$)" se puede representar como $C \subset P$, de lo que podemos inferir que $\forall c \in C \,\, \exists p \in P, \,\, x = p$. Podríamos ver esta última expresión como "Todo cuadrado es igual a algún polígono".}.
+
+Aquí, los cuantificadores "Todo" y "un", que en Aristóteles eran parte del conector (o "centro") del silogismo, para Boole forman parte del sujeto y del predicado. Por tanto, aunque mantiene la estructura de los silogismos aristotélicos, existen algunos cambios.
+
+Una vez tenemos esta equivalencia, es fácil asociar el conector "es-exactamente-igual-que" a la igualdad matemática ($1+2=3$ se suele leer como $1+2$ es $3$).
+
+Sin embargo, es necesario profundizar más. Ahora Boole quiere definir una serie de operaciones de naturaleza algebraica sobre las expresiones en el lenguaje natural. Salimos por tanto de los silogismos y consideramos los conectores lógicos "y", "o" y "no" con los que trabajaba De Morgan. El conector conjuntivo "y" va a ser representada por medio de la multiplicación, · (o yuxtaposición), el disjuntivo "o" mediante la suma, +, y la negación con la resta, -\footnote{Utilizamos notación moderna para facilitar la comprensión, pero Boole no utilizó realmente esta representación}. Notemos que aquí la negación es también una operación binaria.
+
+Por ejemplo, la expresión "rectángulo y equilátero" se convierte en ($r \text{·} e$), "rectángulo o círculo" sería ($r + c$), y "rectángulo no cuadrado", ($r - c$).
+
+Con estas herramientas, el cambio de una expresión lógica a una ecuación se hace de la siguiente forma: "Todo A es un B" es entonces equivalente a "Ser A es (ser A y ser B)", lo cuál escribimos como $A = A \text{·} B$ o $A = AB$.
+
+Además, al contrario que Aristóteles, Boole consideró el concepto universal de "entidad" (todos los objetos satisfacen "ser una entidad") y el concepto nulo de "no-entidad" o "nada" (ningún objeto satisface ser una "no-entidad"). Boole vio una oportunidad para considerar la unidad multiplicativa, el 1, para expresar el término universal, y la unidad aditiva, el 0, para expresar el término nulo. De esta forma, se verificaban propiedades algebraicas como por ejemplo: decir "cuadrado y entidad" es lo mismo que decir simplemente "cuadrado" ($c \text{·} 1 = c$), y decir "cuadrado o nada" es lo mismo que decir "cuadrado" ($c + 0 = c$).
+
+Por último, Boole consideró distintos tipos de proposiciones complejas más allá de los límites de dos términos de Aristóteles.
+
+Respecto a las inferencias silogísticas, destacamos lo siguiente: para la lógica aristotélica, era fundamental el hecho de que las deducciones se dividieran en una serie de pasos que consideraba "inmediatos" y por tanto "perfectos". Sin embargo, aquellas deducciones que para Aristóteles eran inmediatas, para Boole requerían varios pasos intermedios\cite{boole2003laws}.
+
+Veamos un ejemplo. De las premisas "Todo A es B" y "Todo B es C", Aristóteles infería directamtente que "Todo A es C". Para Boole, es más complicado; partimos de las premisas $A = AB$ (1) y $B = BC$ (2), y queremos llegar a que $A = AC$. Entonces\cite{gasser2000john}
+
+$$
+   A = AB \overset{(2)}{\implies} A = A(BC) \overset{asoc.}{\implies} A = (AB)C \overset{(1)}{\implies} A = AC
+$$
+
+\subsection{Limitaciones de la lógica de Boole}
+
+Para terminar, es necesario comentar que, a pesar de que Boole consiguió su objetivo parcial de que la lógica pasara a ser objeto de estudio de las matemáticas, lo que desencadenó una serie de innovaciones posteriores increíbles, no obtuvo los resultados que realmente buscaba.
+
+Por un lado, el razonamiento indirecto (la reducción al absurdo), presente en el trabajo de Aristóteles, está omitido completamente del de Boole; no hace mención alguna. Es improbable que Boole rechazara esta noción, sino que probablemente no fue capaz de introducirlo en su teoría de manera satisfactoria.
+
+Por otro, y quizás más grave, muchos de los razonamientos de Boole se deben rechazar, después de un estudio detallado, por utilizar argumentos falaces. A este problema se le conoce como la "Falacia de la Solución", porque a menudo se encuentra escondida entre varios pasos confusos de la solución que da a una ecuación. Además, si se eliminan las conclusiones intermedias que Boole había obtenido de forma falaz, quedan huecos que ya no se pueden completar correctamente.
+
+Boole no pudo por tanto, deducir los análogos ecuacionales de todas las inferencias inmediatas de Aristóteles. En definitiva, la redución de Boole de la lógica silógistica a lógica ecuacional no funciona\cite{sanchez2004algebra}.
+
 
 
 \section{Siglos XIX, XX}
