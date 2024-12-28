@@ -309,7 +309,59 @@ Introduce entonces toda una serie de conceptos que ya conocemos: la igualdad ent
 
 Por otro lado y de manera igualmente relevante, Cantor trabajó ampliamente con el concepto de infinito, considerando conjuntos de cardinalidad numerable y no numerable. Este trabajo plantea ciertos límites sobre la posibilidad de trabajar con estructuras infinitas computacionalmente\cite{stoll1979set}.
 
-\subsection{Frege}
+\subsection{La lógica de oredicados de Frege}
+
+El sistema lógico que Frege propone en su obra \textit{Begriffsschrift} (\textit{Escritura Conceptual}, 1879) es, básicamente, la lógica moderna como hoy la conocemos, salvo muy pequeñas diferencias\cite{sullivan2004frege}.
+
+Escribiremos su modelo en lenguaje moderno, aunque él utilizaba otra simbología más complicada.
+
+Consideremos los siguientes elementos:
+
+\begin{itemize}
+    \item Los símbolos $\Gamma, \Delta, \Lambda, ...$ representan un contenido (una sentencia) de un predicado, que debe poder ser valorado como cierto o falso. 
+    \item El símbolo $\vdash$ representa una aserción. Por ejemplo, $\vdash \Gamma$ querría decir "la circunstancia $\Gamma$ es un hecho".
+    \item Las operaciones primitivas implicación ($\rightarrow$) y negación ($\lnot$).
+    
+    Dado un predicado $\Gamma$, afirmar $\lnot \Gamma$ es afirmar que no es cierto $\Gamma$.
+    
+    Dados predicados $\Gamma$ y $\Delta$, se afirmar $\Gamma \rightarrow \Delta$ es afirmar que no es cierto "Se niega $\Gamma$ y se afirma $\Delta$", y afirmar que es cierta una de las tres siguientes: "Se afirma $\Gamma$ y se afirma $\Delta$", "Se afirma $\Gamma$ y se niega $\Delta$" o "Se niega $\Gamma$ y se niega $\Delta$"
+
+    \item El concepto de "identidad", $\Gamma \equiv \Delta$, para expresar que $\Gamma$ y $\Delta$ tienen el mismo contenido.
+    \item Predicados que dependen de variables: escribimos funciones $f(x)$. Afirmar $f(x)$ tiene un cuantificador implícito; es lo mismo que afirmar $\forall x, f(x)$.
+\end{itemize}
+
+Con estos elementos, Frege construye una serie de axiomas en los que se basa su sistema:
+
+\begin{enumerate}
+    \item $a \rightarrow (b \rightarrow a)$
+    \item ($c \rightarrow (b \rightarrow a)) \rightarrow ((c \rightarrow b) \rightarrow (c \rightarrow a))$
+    \item $(d \rightarrow (b \rightarrow a)) \rightarrow (b \rightarrow (d \rightarrow a))$
+    \item $(b \rightarrow a) \rightarrow (\lnot a \rightarrow \lnot b)$
+    \item $\lnot \lnot a \equiv a$
+    \item $c \equiv d \implies (f(c) \implies f(d))$
+    \item $c \equiv c$
+    \item $\forall x f(x) \implies f(c)$
+\end{enumerate}
+
+A pesar de que los lenguages lógicos como Prolog se basan en reglas de inferencia en lugar de axiomas, con este sistema Frege dio un paso muy importante hacia la implementación computacional de modelos lógicos gracias al rigor matemático de su sistema, algo que a Boole le faltaba.
+
+\section{El problema de la consistencia en el siglo XX}
+
+\subsection{La paradoja de Russel?}
+
+
+
+
+\section{El desarrollo de Prolog}
+
+
+
+
+
+
+
+
+
 
 
 ORDEN CRONOLÓGICO:
@@ -352,14 +404,6 @@ Morgan), la aparición de la teoría de conjuntos (Cantor), la teoría de tipos
 
 Yo creo que este es un buen timeline y sería ir desarrollando estos conceptos y tal de forma que se vayan conectando entre sí y al concepto de la lógica
 
-
-
-Sería interesante hablar de :
-
-
-\section{Theorem Provers??}
-- Tecton
-- Lean
 
 
 % Bibliografía
