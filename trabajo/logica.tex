@@ -347,6 +347,10 @@ A pesar de que los lenguages lógicos como Prolog se basan en reglas de inferenc
 
 \section{El problema de la consistencia en el siglo XX}
 
+Un sistema deductivo se dice que es \textit{consistente} si ningún par de aserciones del sistema se contradicen entre sí, o, en otras palabras, si dos enunciados se contradicen, entonces al menos uno de los dos no puede ser probado en el sistema\cite{tarski1994introduction}.
+
+En el siglo XX ocurren una serie de descubrimientos??? relacionados con la consistencia de los sistemas formales que hemos visto hasta ahora; por un lado, la paradoja de Russel, y por otro, el objetivo de Hilbert de formalizar el pensamiento matemático que permitiera probar su propia consistencia, obviamente desbaratado más tarde por parte de Gödel.
+
 \subsection{La paradoja de Russel}
 
 En 1901, Bertrand Russel publicó la siguiente paradoja. Sea $R$ el conjunto de todos los conjuntos que no son miembros de si mismos. Es decir,
@@ -363,7 +367,7 @@ $$
 
 Lo cuál es obviamente contradictorio pues es una proposición de la forma $A \iff \lnot A$.
 
-Esto supone un problema para la teoría de conjuntos de Cantor, pero además Russel demostró que una versión de esta paradoja se podía obtener desde el sistema axiomático de Frege: consideramos una función $f(S)$ que toma como variable un conjunto de conjuntos $S$ y $f(S) = S \notin S$. Sea $R$ el conjunto definido por
+Esto supone un problema para la teoría de conjuntos de Cantor, pues prueba que no es un sistema consistente. Pero además Russel demostró que una versión de esta paradoja se podía obtener desde el sistema axiomático de Frege: consideramos una función $f(S)$ que toma como variable un conjunto de conjuntos $S$ y $f(S) = S \notin S$. Sea $R$ el conjunto definido por
 
 $$
     R = \{S \,\, \text{conjunto} \,\, | \,\, f(S)\}
@@ -379,15 +383,25 @@ Otra solución distinta fue propuesta en el mismo año por Ernesto Zermelo, con 
 Me faltan referencias aquí porque me he agobiado y de hecho hay cosas que he construido un poco de 0.
 
 
+\subsection{El programa de Hilbert y la incompletitud de Gödel}
+
+En el año 1900, David Hilbert protagonizó una charla en la que identificó 23 problemas excepcionales, entre ellos la hipótesis del continuo y la consistencia en matemáticas.
+
+Esto evolucionó un intento por parte de Hilbert de construir un sistema matemático utilizando todas las teorías anteriores, formando un conjunto de axiomas finito y completo (es decir, en el que para cada enunciado, o el propio enunciado o su negación sea derivable de estos axiomas), y en el que se pudiera probar que estos axiomas eran consistentes.
+
+Hoy en día sabemos que esto es imposible. En el año 1931, Kurt Gödel publicó sus Teoremas de Inconsistencia\footnote{No los voy a redactar se pueden buscar en wikipedia}, terminando por tanto con el programa de Hilbert\cite{blackburn2005oxford}.
+
+Las conclusiones que podemos sacar sobre este trabajo, son fundamentalmente sobre lo límites de la computación. Los teoremas de Gödel iplican que cualquier sistema formal será, o bien incompleto, ó bien inconsistente. Esto es igualmente aplicable a cualquier lenguaje de programación basado en lógica, pues es sencillamente un sistema formal.
+
+Por otro lado, se demuestra también que existen problemas que no son decibibles, u otros que tienen limitaciones como por ejemplo sobre su resolución algorítmica. Existe por tanto un límite a lo que se puede llegar a conseguir con lenguajes de programación lógica.
 
 \section{El desarrollo de Prolog}
 
+\subsection{Turing}
 
+\subsection{Planner}
 
-
-
-
-
+\subsection{Prolog}
 
 
 
