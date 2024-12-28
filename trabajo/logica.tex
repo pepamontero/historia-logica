@@ -4,9 +4,9 @@
 \usepackage{amsfonts}
 \usepackage{amsmath}
 
-\title{Lógica computacional?}
-\author{Pepa Montero Jimena}
-\date{November 2024}
+\title{Formalizando el Pensamiento: Historia de la Lógica y su Desarrollo Computacional}
+\author{Pepa Montero}
+\date{2024}
 
 % Diseño del párrafo
 \setlength{\parindent}{0pt}
@@ -25,39 +25,39 @@
 \maketitle
 
 
+\hspace{40 mm}
+
 \section{Introducción}
 
-Motivación: ver el desarrollo de la lógica desde aristóteles hasta los primeros lenguajes de programación lógica, el camino que hemos tomado para llegar a computabilizar la lógica y también cuáles son los límites de esta formalización computacional
+La lógica, desde su aparición en la filosofía clásica gracias al trabajo de Aristóteles, ha sido una disciplina ampliamente estudiada y que ha supuesto una gran cantidad de quebraderos de cabeza a lo largo de la historia. Sin embargo, su desarrollo no ha sido en absoluto lineal ni uniforme. Durante siglos, la lógica de silogismos de Aristóteles dominó el panorama intelectual, y no es hasta bien entrado el siglo XVII que empiezan a surgir nuevas perspectivas y enfoques.
 
-Ideas:
-- en un principio hacer un breve sketch de historia de la lógica desde su "aparición" con aristoteles hasta el nacimiento de la logica simbolica . destacar que la logica de terminos siguio siendo la única realmente relevante? fundamentalmente hasta el siglo XVII (constrastar) y que no hay muchas innovaciones
-- después notar que nos vamos a centrar solo en autores y momentos concretos que nos interesan para llegar a Prolog
-mi idea fundamental del trabajo es llegar quizás con el mismo ejemplo desde aristóteles hasta prolog (estaría guay repetir este ejemplo a lo largo de las explicaciones de distintas lógicas, no tiene que ser un ejemplo complicado) y ver que se puede hacer con ello en prolog
-- para llegar a prolog tenemos que pasar por una "matematización" de la lógica y también del desarrollo de la lógica proposicional. pero también destacar las similiaridades de prolog con la logica de aristoteles ()
-- pongo en particular prolog como ejemplo fundamental de lenguaje lógico pero estaría guay generalizar esto
-- como cosas potencialmente extras: comentar una relación entre la no computabilidad de problemas; comentar la relación con asistentes de demostración quizás.
+El objetivo de este trabajo consiste en trazar un recorrido histórico desde los orígenes de la lógica, pasando por sus varios intentos de formalización y los problemas que esto ha presentado, hasta su eventual implementación computacional en lenguajes de programación lógicos como Prolog y los límites de esta última.
 
 \section{Nacimiento de la lógica}
 
-¿Cuál es el origen de la lógica como disciplina? ¿Existe un momento concreto de la Historia en el que las personas aprendieron a diferenciar entre razonamientos sólidos de aquellos que no lo son? Es difícil responder a esta pregunta con exactitud, pues es fácil pensar que las personas llevan haciendo razonamientos lógicos (por lo menos en contextos relativamente sencillos) desde el inicio de los tiempos.
+¿Cuál es el origen de la lógica como disciplina? ¿Existe un momento concreto de la Historia en el que las personas aprendieron a diferenciar entre razonamientos sólidos de aquellos que no lo son? Es difícil responder a esta pregunta con exactitud, pues es lógico pensar que las personas llevan haciendo razonamientos lógicos, por lo menos en contextos relativamente sencillos, desde el inicio de los tiempos.
+
+\newpage
 
 Podemos considerar que la lógica nace a raíz del creciente interés por presentar nuestras reglas de inferencia naturales como un sistema coherente. Si pensamos en la lógica como un sistema de reglas de inferencia justificables que separa los razonamientos válidos de aquellos que no lo son, podemos considerar a Aristóteles como el padre de esta disciplina\cite{moravcsik2004logic}. 
 
-Sin embargo, no podemos considerar este surgimiento como un hecho aislado. Es evidente que era necesaria una base conceptual sólida y un desarrollo cognitivo relacionado con el interés en las matemáticas y la formalización, que llevaba ya tiempo gestándose en otros lugares a lo largo del tiempo. Sin embargo, el estudio de estos precedentes históricos escapa los límites de este trabajo.
+Sin embargo, no podemos considerar este surgimiento como un hecho aislado. Es evidente que era necesaria una base conceptual sólida y un desarrollo cognitivo relacionado con el interés en las matemáticas y la formalización que llevaba ya tiempo gestándose en otros lugares a lo largo del tiempo. El estudio de estos precedentes históricos escapa los límites de este trabajo.
 
-\subsection{Lógica aristotélica}
+\subsection{La lógica aristotélica de silogismos}
 
 \begin{displayquote}
     \textit{Todos los hombres son mortales. Todos los griegos son hombres. Luego todos los griegos son mortales.}
 \end{displayquote}
 
-Es en el momento de la Historia de Grecia en la que empieza a aparecer un interés por la prueba formal en matemáticas. Este interés se intensifica con la aparición en el siglo VI A.C. de la democracia en la \textit{polis} griega de Atenas, sistema en el que todos los ciudadanos podían participar directamente en las decisiones relativas a la gobernanza de la ciudad.
+Nos ubicamos en la Grecia Clásica, en la que empieza a aparecer un interés por la prueba formal en matemáticas. Este interés se intensifica con la aparición en el siglo VI A.C. de la democracia en la \textit{polis} griega de Atenas, sistema en el que todos los ciudadanos podían participar directamente en las decisiones relativas a la gobernanza de la ciudad.
 
 Las reuniones de la asamblea, un órgano político donde se reunían los ciudadanos, eran uno de los eventos más importantes en Atenas, llegando a asistencias de hasta 6.000 personas. En estas asambleas se planteaba un objeto de debate, alrededor del cual distintos participantes podían exponer un discurso defendiendo su posición, ya fuera a favor o en contra.
 
 En este contexto, la habilidad de un ciudadano para ser un orador persuasivo empieza a cobrar una gran importancia. Consecuentemente, aquellos que podían enseñar esta habilidad a los ciudadanos tenían algo muy valioso que ofrecer. Muchos de los pensadores conocidos en esta época se convirtieron precisamente en profesores de esta competencia, a los que se les empezó a llamar \textit{sofistas} de forma colectiva.
 
-La idea es, por tanto, que las pruebas deductivas en el contexto matemático surgen inicialmente como un medio de persuasión en un contexto dinámico y colectivo. Un ejemplo en el que podemos ver esta intención reflejada claramente es la famosa prueba de la duplicación del cubo en el Menón de Platón\cite{novaes2020dialogical}; lejos de ser de una prueba formal, se trata de una conversación entre dos personajes. Uno de ellos intenta convencer al otro de su punto de vista, en este caso, de la validez de su método para construir el cuadrado con área doble.
+La idea es, por tanto, que las primeras pruebas matemáticas surgen como un medio de persuasión en un contexto dinámico y colectivo. Un ejemplo en el que podemos ver esta intención reflejada claramente es la famosa prueba de la duplicación del cubo en el Menón de Platón\cite{novaes2020dialogical}; lejos de ser de una prueba formal, se trata de una conversación entre dos personajes. Uno de ellos intenta convencer al otro de su punto de vista, en este caso, de la validez de su método para construir el cuadrado con área doble.
+
+\newpage
 
 \begin{displayquote}
 SOKRATES. Entonces, ¿cuál es la extensión de este último? ¿No será cuatro veces mayor?\\
@@ -70,17 +70,15 @@ SOKRATES. Por consiguiente, doblando la línea, no obtienes una superficie doble
 EL ESCLAVO. Es verdad.\cite{bergua1958dialogos}
 \end{displayquote}
 
-Sin embargo, debido al aumento de la importancia del medio escrito, ocurre una transformación desde las situaciones dialógicas concretas, que involucran a participantes reales, hacia un enfoque abstracto e impersonal, en el que se considera que todas las premisas necesarias para derivar una conclusión deben ser explícitas. Esta transformación ocurre como una reacción contra lo que se percibía como los modos meramente persuasivos cultivados por oradores, sofistas y políticos en el contexto del debate público. Podemos decir, entonces, que la deducción emerge como una respuesta diferente, supuestamente mejor, a necesidades y funciones similares relacionadas con el discurso racional y la persuasión en la vida pública\cite{novaes2020dialogical}.
+Sin embargo, debido al aumento de la importancia del medio escrito, ocurre una transformación desde este tipo de representaciones hacia un enfoque abstracto e impersonal, en el que se considera que todas las premisas necesarias para derivar una conclusión deben ser explícitas. Esta transformación ocurre como una reacción contra lo que se percibía como un intento por parte de oradores, sofistas y políticos de persuadir a los participantes del debate público.\cite{novaes2020dialogical}.
 
-Alrededor del del 350 A.C., Aristóteles publica las obras \textit{Analytica Priora} y \textit{Analytica Posteriora}, cuyo objeto de estudio es la lógica demostrativa\cite{smith1989prior}. La demostración en el contexto de lógica demostrativa se entiende por tanto como una oposición a la persuasión: según Aristóteles, una demostración es una argumentación extendida que parte de unas premisas consideradas ciertas, e incluye una cadena de razonamientos que muestran mediante pasos deductivamente evidentes que la conclusión es una consecuencia de estas premisas. De esta forma, el objetivo de la demostración es la producción de conocimiento, al contrario que la persuasión, cuyo objetivo es la producción de creencias u opiniones\cite{corcoran2009aristotle}.
+Alrededor del del 350 A.C., Aristóteles publica las obras \textit{Analytica Priora} y \textit{Analytica Posteriora}, cuyo objeto de estudio es la lógica demostrativa\cite{smith1989prior}. Según Aristóteles, una demostración es una argumentación que parte de unas premisas consideradas ciertas, e incluye una cadena de razonamientos que muestran mediante pasos deductivamente evidentes que la conclusión es una consecuencia de estas premisas. De esta forma, el objetivo de la demostración es la producción de conocimiento, al contrario que la persuasión, cuyo objetivo es la producción de creencias u opiniones\cite{corcoran2009aristotle}.
 
 El objetivo de Aristóteles era, por tanto, presentar una teoría general de verdad y consecuencia que aplicara a todas las demostraciones. Sin embargo, para el propósito de \textit{Analytica Priora}, se centra en el concepto de silogismo, término que utiliza en el texto original para referirse al concepto de deducción o inferencia\cite{ross1964aristotle}. Afirma que la deducción debe ser estudiada antes que la demostración pues la primera es más general que la segunda\cite{smith1989prior}.
 
-Esta teoría general de la deducción de Aristóteles se basa en dos ideas clave. La primera es que en ciertos casos se puede ver que una conclusión sigue lógicamente de las premisas sin que sea necesario recurrir a otras proposiciones; este tipo de deducciones reciben el nombre de silogismos \textit{inmediatos} o \textit{completos} (\textit{teleios syllogismos}), en el sentido de que no hay ninguna proposición que \textit{medie} entre las premisas y la conclusión. Estas son las que podemos considerar nuestras "reglas de inferencia". La segunda idea es que las deducciones que requieren de mediación son en realidad el resultado de encadenar silogismos inmediatos\cite{corcoran2009aristotle}.
+Esta teoría general de la deducción de Aristóteles se basa en dos ideas clave. La primera es que en ciertos casos se puede ver que una conclusión sigue lógicamente de las premisas sin que sea necesario recurrir a otras proposiciones; este tipo de deducciones reciben el nombre de silogismos \textit{inmediatos} o \textit{completos} (\textit{teleios syllogismos}), en el sentido de que no hay ninguna proposición que \textit{medie} entre las premisas y la conclusión. Estas son las que podemos considerar nuestras ``reglas de inferencia". La segunda idea es que las deducciones que requieren de mediación son en realidad el resultado de encadenar silogismos inmediatos\cite{corcoran2009aristotle}.
 
-Note to self: igual debería decidir si voy a utilizar en general "silogismo" o "deducción"
-
-Para ilustrar su teoría general de la deducción, Aristóteles presentó un caso específico conocido como "silogismo categórico"\cite{corcoran2009aristotle}, un tipo concreto de razonamiento deductivo en el que se llega a una conclusión a partir de dos premisas. Cada uno de estos tres elementos es una oración "categórica" con tres términos, uno de los cuales (al que llama elemento \textit{central}), ocurre en cada premisa pero no en la conclusión. Aristóteles afirma que, de hecho, todos los silogismos se pueden reducir de alguna forma a silogismos categóricos\cite{smith1989prior}.
+Para ilustrar su teoría general de la deducción, Aristóteles presentó un caso específico conocido como ``silogismo categórico"\cite{corcoran2009aristotle}, un tipo concreto de razonamiento deductivo en el que se llega a una conclusión a partir de dos premisas. Cada uno de estos tres elementos es una oración ``categórica" con tres términos, uno de los cuales (al que llama elemento \textit{central}), ocurre en cada premisa pero no en la conclusión. Aristóteles afirma que, de hecho, todos los silogismos se pueden reducir de alguna forma a silogismos categóricos\cite{smith1989prior}.
 
 Podríamos describir el modelo de la teoría de la deducción aristotélica de la siguiente forma:
 
@@ -91,71 +89,54 @@ Algún A es un B (AiB)\\
 Algún A no es un B (AoB)\\
 \end{displayquote}
 
-Entonces se siguen las siguientes reglas de inferencia
-
-Conversiones
+De donde se siguen las siguientes reglas de inferencia\cite{corcoran2009aristotle,smith1989prior}. Aquí, utilizaremos la notación $A \equiv B$ para expresar que ``$A$ es equivalente a $B$", y $A, B \vdash C$ para expresar ``de $A$ y $B$ se puede inferir $C$".
 
 \begin{enumerate}
-    \item BeA $\implies$ AeB
-    \item BiA $\implies$ AiB
-    \item BaA $\implies$ AiB
-\end{enumerate}
-
-Eliminaciones universales
-
-\begin{enumerate}
+    \item BeA $\equiv$ AeB
+    \item BiA $\equiv$ AiB
+    \item BaA $\equiv$ AiB
     \item AaB, BaC $\vdash$ AaC
     \item AeB, BaC $\vdash$ AeC
-\end{enumerate}
-
-Eliminaciones existenciales
-
-\begin{enumerate}
     \item AaB, BiC $\vdash$ AiC
     \item AeB, BiC $\vdash$ AoC
 \end{enumerate}
 
-Entonces una deducción se define de manera formal de la siguiente forma: ?? no se me da pereza
+En estas obras Aristóteles también introduce el concepto de reducción al absurdo.
 
-Ejemplo:
+Los \textit{Analíticos} forman parte de un conjunto de seis obras de Aristóteles que hoy en día conocemos como el \textit{Organon}. El resto de obras son:
 
-\cite{corcoran2009aristotle,smith1989prior}
+\begin{itemize}
+    \item \textit{Categoriae}, en la que introduce una clasificación de todos los objetos que existen según 10 parámetros distintos.
+    \item \textit{De Interpretatione}, en la que introduce su concepto de proposición y valoración.
+    \item \textit{Topica}, en la que trata problemas sobre la costrucción de argumentos válidos-
+    \item \textit{De Sophisticis Elenchis}, sobre falacias lógicas.
+\end{itemize}
 
-[falta quizás mencionar aqui algo de las Categorias de aristoteles, pero ya lo vere luego]
+\subsection{El silogismo hasta el siglo XVII}
 
-[falta también mencionar que Aristóteles da en los analíticos el método de la demostración por reducción al absurdo]
+En un inicio, el \textit{Organon} se utilizaba como material didáctico en la escuela Peripatética, que fundó Aristóteles en el Liceo en el año 335 a.C.
 
-[falta también mencionar que el texto está inlcuido en el Organon y un resumen breve de de que se habla en cada uno de los libros, diciendo que me voy a centrar en los analíticos (y quizá en las categorías)]
+En el momento de la muerte de Aristóteles, se está desarrollando también en Grecia el movimiento estoico, surgiendo la lógica estoica. Aunque los filósofos que impulsaron este sistema, principalmente Crisipo (281 - 208), habían estudiado ampliamente la lógica aristotélica, y a pesar de que estas dos se consideran en conjunto los dos grandes sistemas lógcos en el mundo clásico, también menudo se consideran como disciplinas rivales.
 
-\subsection{De Aristóteles hasta Boole}
+En particular, para el estoico la unidad más pequeña no es el ``silogismo" sino la ``proposición" o ``aserción". Las aserciones en este sistema tienen un valor de verdad asociado que depende de las condiciones en las que se expresen (por ejemplo, la aserción ``es de día" solo podrá ser cierta cuando realmente sea de día). Recordemos que en el sistema aristotélico, la veracidad ``real" de un silogismo no es relevante; solo nos interesa saber si podemos inferir naturalmente unos términos a partir de otros.
 
-En un inicio, el Organon se utilizaba como material didáctico en la escuela Peripatética, que fundó Aristóteles en el Liceo en el año 335 a. C.
-
-En el momento de la muerte de Aristóteles, se está desarrollando también en Grecia el movimiento estoico, surgiendo la lógica estoica. Aunque los filósofos que impulsaron este sistema, principalmente Chrysippus, habían estudiado ampliamente la lógica aristotélica, y a pesar de que estas dos se consideran en conjunto los dos grandes sistemas lógcos en el mundo clásico, también menudo se consideran como disciplinas rivales.
-
-En particular, para el estoico la unidad más pequeña no es el "silogismo" sino la "proposición" o "aserción". Las aserciones en este sistema tienen un valor de verdad asociado que depende de las condiciones en las que se expresen (por ejemplo, la aserción "es de día" solo podrá ser cierta cuando realmente sea de día). Recordemos que en el sistema aristotélico, la veracidad "real" de un silogismo no es relevante; solo nos interesa saber si podemos inferir naturalmente unos términos a partir de otros.
-
-Además, los elementos "unidad" del sistema, es decir, las aserciones simples como "es de día", se pueden conectar con otras mediante conectores lógicos para formar aseciones complejas. Algunos de estos conectores son la implicación ("si es de día, hay luz"), la conjunción ("es de día y hay luz") y las disjunción ("o es de día o hay es de noche")\cite{algra1999cambridge}. Este sistema nos empieza a recordar al sistema de Lógica Proposicional que hoy conocemos.
+Además, los elementos ``unidad" del sistema, es decir, las aserciones simples como ``es de día", se pueden conectar con otras mediante conectores lógicos para formar aseciones complejas. Algunos de estos conectores son la implicación (``si es de día, hay luz"), la conjunción (``es de día y hay luz") y las disjunción (``o es de día o es de noche")\cite{algra1999cambridge}. Este sistema nos empieza a recordar al sistema de lógica proposicional que hoy conocemos.
 
 A lo largo de los siguientes siglos, se realizó una gran cantidad de copias, ediciones, traducciones, reorganizaciones y comentarios sobre esta obra, lo que contribuyó a su gran influencia sobre la tradición filosófica posterior.
 
-Una primera edición y reorganización del Organon a destacar es obra de Andrónico de Rodas, director de la escuela peripatética entre los años 78 y 47 a. C. El orden que Andrónico decidió cuidadosamente se corresponde con el que conocemos hoy\cite{hatzimichali2013texts}.
+Una primera edición y reorganización del \textit{Organon} a destacar es obra de Andrónico de Rodas, director de la escuela peripatética entre los años 78 y 47 a. C. El orden que Andrónico decidió cuidadosamente se corresponde con el que conocemos hoy\cite{hatzimichali2013texts}.
 
-La introducción de los textos de Aristóteles a la cultura occidental se debe en gran parte a las traducciones de Boecio. Aunque al inicio del siglo VI los académicos romanos de la época aún no contaban con muchos textos científicos sobre matemáticas o medicina, ya tenían traducciones y explicaciones detalladas de la primera mitad del Organon\cite{charles2004latin}. Sin embargo, en la primera mitad de la Edad Media, la lógica no era un estudio central para los romanos y no se hicieron muchas innovaciones en esta ciencia\cite{marebon2008logic}. Tras la caída del Imperio Romano, muchos de estos trabajos se perdieron y dejaron de estar disponibles en Occidente; tendremos que esperar al siglo XII para volver a encontrar este contenido.
+La introducción de los textos de Aristóteles a la cultura occidental se debe en gran parte a las traducciones de Boecio. Aunque al inicio del siglo VI los académicos romanos de la época aún no contaban con muchos textos científicos sobre matemáticas o medicina, ya tenían traducciones y explicaciones detalladas de la primera mitad del \textit{Organon}\cite{charles2004latin}. Sin embargo, en la primera mitad de la Edad Media, la lógica no era un estudio central para los romanos y no se hicieron muchas innovaciones en esta disciplina\cite{marebon2008logic}. Tras la caída del Imperio Romano, muchos de estos trabajos se perdieron y dejaron de estar disponibles en Occidente; tendremos que esperar al siglo XII para volver a encontrar este contenido.
 
-\subsubsection{Árabes}
+\subsubsection{Impacto en la cultura árabe}
 
-Por otro lado, alrededor del año 900 d. C., el Organon ya se había traducido al árabe y sujeto a un estudio intensivo. En particular, tenemos varios textos de la escuela de Baghdad. El lógico más famoso de esta escuela fue Alfarabi (950 d.c.), que escribió una serie de tratados introductorios a la lógica además de comentarios sobre los libros del Organon.
+Por otro lado, alrededor del año 900 d.C., el \textit{Organon} ya se había traducido al árabe y sujeto a un estudio intensivo. En particular, tenemos varios textos de la escuela de Baghdad. El lógico más famoso de esta escuela fue Alfarabi (870 - 950), que escribió una serie de tratados introductorios a la lógica, además de comentarios sobre los libros del \textit{Organon}.
 
-En la obra de Alfarabi encontramos una objeto de estudio recurrente en muchos textos lógicos árabes: el intento de demostrar que todos los argumentos válidos se pueden escribir en forma de silogísmo, un intento que ya conocíamos en Aristóteles.
+En la obra de Alfarabi encontramos un objeto de estudio recurrente en muchos textos lógicos árabes: el intento de demostrar que todos los argumentos válidos se pueden escribir en forma de silogismo, iniciado por Aristóteles.
 
-Después de la muerte de Alfarabi, nació otra tradición lógica distinta, con gran influencia de los textos de Avicenna (1037 dc). Aunque Avicenna se refería a Alfarabi como su predecesor, después solo de Aristóteles, su sistema de silogismos se diferenciaba en algunos puntos estructurales.
+Después de la muerte de Alfarabi, nació otra tradición lógica distinta, con gran influencia de los textos de Avicena (980 - 1037). Aunque Avicena se refería a Alfarabi como su predecesor, después solo de Aristóteles, su sistema de silogismos se diferenciaba en algunos puntos estructurales. Más tarde, ocurre otra respuesta en una dirección distinta por parte de Al-Ghazali (1057 - 1111).
 
-Sin embargo, medio siglo después de la muerte de Avicenna, hay una clara respuesta por parte de Al-Ghazali (1111 d.c.). En este momento de la historia de la lógica, incluso los sabios que rechazaban a filosofía griega estaban de acuerdo en que la lógica era necesaria? innegable? como sistema formal.
-
-Las escuelas científicas, particularmente en España, siguieron enseñando la tradición de la Escuela de Baghdad, culminando con el trabajo de Averroes (1198), considerado el mayor logicista de la cultura musulmana en España (Muslim Spain). El proyecto de Averroes consistía en dar un sentido consistente a los textos aristotélicos, como extensión de los métodos de la escuela.
-
-A pesar de que Averroes veia algunos problemas en la tradición aristotélica, los cuales describe en su obra The Essays, en todo momento de su carrera intentó preservar la perspectiva aristotélica\cite{street2001arabic}. En The Essays, escribe:
+Sin embargo, a pesar de que en este momento las obras de Avicena y Al-Ghazali habían, en muchos casos, reemplazado al propio Aristóteles como referencia lógica, en Córdoba surgió un movimiento aislado, encabezado por Averroes (1126 - 1198), que buscaba regresar al pensamiento aristotélico puro. A pesar de que Averroes veia algunos problemas en la tradición aristotélica, los cuales describe en su obra \textit{The Essays}, en todo momento de su carrera intentó preservar la perspectiva aristotélica\cite{street2001arabic}. En esta misma obra, escribe:
 
 \begin{displayquote}
      \textit{Esto me ha llevado ahora (dada mi alta opinión de Aristóteles y mi creencia de que su teorización es mejor que las de todas las demás personas) a examinar esta cuestión con seridad y con gran esfuerzo.}\footnote{Mi traducción del texto ya traducido al inglés en \cite{street2001arabic}: \textit{This has led me now
@@ -163,45 +144,44 @@ A pesar de que Averroes veia algunos problemas en la tradición aristotélica, l
     with great effort.}}
 \end{displayquote}
 
-A pesar de que en el mundo islámico las obras de Avicena y Algazel habían, en muchos casos, reemplazado al propio Aristóteles como referencia lógica, en Córdoba surgió un movimiento aislado, encabezado por Averroes, que buscaba regresar al pensamiento aristotélico puro. Este esfuerzo, aunque atípico en la filosofía islámica, tuvo un impacto profundo en la filosofía europea. Las obras de Averroes, como sus Grandes Comentarios, empezaron a circular entre los académicos latinos (de lengua latina) poco después de su muerte en 1198, marcando un punto de inflexión en la recepción de la lógica árabe en Occidente\cite{street2001arabic, charles2004latin}. [esto no es añadido sino posible alternativa de redacción]
+Este esfuerzo, aunque atípico en la filosofía islámica, tuvo un impacto profundo en la filosofía europea. Las obras de Averroes, como sus \textit{Grandes Comentarios}, empezaron a circular entre los académicos de lengua latina poco después de su muerte en 1198, marcando un punto de inflexión en la recepción de la lógica árabe en Occidente\cite{street2001arabic, charles2004latin}.
 
-\subsubsection{Occidente}
 
-Este intento de regresar a la lógica de Aristóteles (Averroes) tuvo un impacto inmenso en la filosofía Occidental. Las primeras traducciones de las obras de Aristóteles (como los Analíticos) al Latín en esta segunda mitad de la Edad Media se deben a Jaime de Venecia (segundo cuarto del siglo XI - 1147) y son directamente del griego.
+\subsubsection{Impacto en la cultura occidental}
 
-Sin embargo, la mayoría de los traductores de esta época estaban interesados únicamente en los textos ya traducidos al árabe, pues la cultura arábica era altamente dominante y avanzada en esta área. Para estos traductores, el objetivo era replicar tan fielmente como fuera posible, la filosofía arábica en Latín.
+A pesar del creciente interés en la cultura occidental por conocer las ideas filosóficas que los árabes estaban desarrollando, esta época se caracteriza únicamente por la copia del material ya existente.
 
-Entre ellos, destacamos a Gerardo de Cremona (1114 - 1187), que en el mismo siglo que Jaime tradujo varios comentarios árabes del Organon al Latín. Alrededor del 1220, William de Luna como tradujo los comentarios de Averroes del Isagoge, Categories, De Interpretatione y los Analíticos. Al mismo tiempo, Jacob Anatoli tradujo estos textos al hebreo\cite{charles2004latin}.
+Las primeras traducciones de las obras de Aristóteles al Latín en esta segunda mitad de la Edad Media se deben a Jaime de Venecia (segundo cuarto del siglo XI - 1147) y son directamente del griego. Sin embargo, la mayoría de los traductores de esta época estaban interesados únicamente en los textos lógicos ya traducidos al árabe, pues la cultura arábica era altamente dominante y avanzada en esta disciplina. Para estos traductores, el objetivo era replicar tan fielmente como fuera posible la filosofía arábica en Latín.
 
-Existen algunas aportaciones nuevas a la lógica en este momento, como por ejemplo los comentarios sobre lógica aristotélica de Pedro Abelardo (1079 - 1142). Aún así, el eje central de estas aportaciones sigue siendo el Organon y el trabajo de Boecio, y consisten fundamentalemente en pequeñas ampliaciones de la lógica de silogismos. No se trata de un periodo innovador, pero sí se consolida la Lógica como disciplina fundamental de la filosofía\cite{marebon2008logic}, formando parte de las "siete artes liberales", siendo parte del \textit{Trivium} junto con la Gramática y la Retórica\cite{dutilh2008logic}.
+Entre ellos, destacamos a Gerardo de Cremona (1114 - 1187), que en el mismo siglo que Jaime tradujo varios comentarios árabes del \textit{Organon} al Latín. Alrededor del 1220, William de Luna tradujo los comentarios de Averroes de \textit{Categories}, \textit{De Interpretatione} y los \textit{Analíticos}. Al mismo tiempo, Jacob Anatoli tradujo estos textos al hebreo\cite{charles2004latin}.
 
-\subsubsection{Ockham}
+Existen algunas aportaciones nuevas a la lógica en este momento, como por ejemplo los comentarios sobre lógica aristotélica de Pedro Abelardo (1079 - 1142). Aún así, el eje central de estas aportaciones sigue siendo el \textit{Organon} y el trabajo de Boecio, y consisten fundamentalemente en pequeñas ampliaciones de la lógica de silogismos. No se trata de un periodo innovador, pero sí se consolida la Lógica como disciplina fundamental de la filosofía\cite{marebon2008logic}, formando parte de las ``siete artes liberales", y del \textit{Trivium} junto con la Gramática y la Retórica\cite{dutilh2008logic}.
 
-Quizás el primer logicista que empieza a separarse notablemente de la lógica silogista es Guillermo de Ockham (1285 - 1349). Es conocido principalmente por ser el pionero del nominalismo. En el nominalismo, se rechaza el concepto de universalidad: se considera que dos objetos denominados con el mismo término no tienen nada más en comñun a parte de esta denominación (por ejemplo, lo único que todas las sillas tienen en común es que se llaman "silla"). Esta idea, que ya había sugerido antes Boecio\cite{blackburn2005oxford} y también Abelardo, era opuesta al realismo adoptado por Platón y en parte por Aristóteles.
+\subsubsection{Primeras innovaciones: Guillermo de Ockham}
 
-Otra contribución interesante de Ockham es la conocida como "navaja de Ockham" o "principio de economía"; el principio de que "las entidades no deben ser multiplicadas sin necesidad"\cite{blackburn2005oxford}. De aquí se deduce también la idea de que la explicación más simple suele ser la más acertada. Curiosamente, aunque este principio se atribuye a Ockham, es probable que tuviera sus orígenes incluso antes que Aristóteles\cite{thorburn1918myth}.
+Quizás el primer lógico que empieza a separarse notablemente de la lógica silogista es Guillermo de Ockham (1285 - 1349). Es conocido principalmente por ser el pionero del nominalismo. En el nominalismo, se rechaza el concepto de universalidad: se considera que dos objetos denominados con el mismo término no tienen nada más en común a parte de esta denominación (por ejemplo, lo único que todas las sillas tienen en común es que se llaman ``silla"). Esta idea, que ya habían sugerido antes Boecio\cite{blackburn2005oxford} y también Abelardo, era opuesta al realismo adoptado por Platón y en parte por Aristóteles.
 
-Existía por tanto un interés en formalizar la lógica de una manera menos complicada quizás que Aristóteles. Ockham recupera los conectores lógicos conjunción, disjunción y negación y da una serie de reglas de inferencia\cite{boehner1990philosophical}. Nos estamos acercando por tanto a la lógica de predicados y alejando de la de silogismos.
+Otra contribución interesante de Ockham es la conocida como ``navaja de Ockham" o ``principio de economía"; el principio de que ``las entidades no deben ser multiplicadas sin necesidad"\cite{blackburn2005oxford}. De aquí se deduce también la idea de que la explicación más simple suele ser la más acertada. Curiosamente, aunque este principio se atribuye a Ockham, es probable que tuviera sus orígenes incluso antes que Aristóteles\cite{thorburn1918myth}.
 
-Además, sobre conectores lógicos, Ockham escribió lo siguiente: "También debe saberse que el opuesto contradictorio de una proposición copulativa es una proposición disyuntiva compuesta por los contradictorios de las partes de la copulativa"\cite{logicmuseum_ockham}. En lenguaje moderno, esto es $\lnot (A \land B) = \lnot A \lor \lnot B$, es decir, tenemos aquí el precursor de las Leyes de De Morgan.
+Existía por tanto un interés en formalizar la lógica de una manera menos complicada quizás que Aristóteles. Ockham recupera los conectores lógicos conjunción, disjunción y negación, y da una serie de reglas de inferencia\cite{boehner1990philosophical}. Nos estamos acercando por tanto a la lógica de predicados y alejando de la de silogismos.
 
-\subsubsection{Siglo XVII}
+\newpage
 
-Después de Ockham hubo una buena cantidad de innovaciones en lógica, consolidación de las ideas anteriores, con un interés en las falacias y las paradojas, desarrollo de las reglas de inferencia etc.
+Además, sobre conectores lógicos, Ockham escribió lo siguiente: ``También debe saberse que el opuesto contradictorio de una proposición copulativa es una proposición disyuntiva compuesta por los contradictorios de las partes de la copulativa"\cite{logicmuseum_ockham}. En lenguaje moderno, esto es $\lnot (A \land B) = \lnot A \lor \lnot B$, es decir, tenemos aquí el precursor de las Leyes de De Morgan.
 
-Puesto que empieza a haber una gran cantidad de innovaciones en muchas direcciones, vamos a centrarnos en aquellas que son especialmente interesantes para este trabajo.
+\subsection{Declive del silogismo y el álgebra de conceptos de Leibniz}
 
-Como hemos comentado antes, empieza a existir un interés por la formalización de la lógica. Esto es de especial interés para este trabajo puesto que, para que sea posible la computación de un objeto, es necesaria su previa formalización. Podemos mencionar a Descartes como un primer paso en esta dirección; aunque no trabajó explícitamente con esta idea, su objetivo en obras como el \textit{Discurso del Método} era clarificar ideas simples y desarollar un método deductivo concreto que pudiera revelar nuevas verdades\cite{wahl2008port}.
+Después de Ockham, aunque continuó el proceso de consolidación y ampliación de las ideas anteriores, empezó a haber una serie de innovaciones en distintas direcciones. A partir de ahora, nos centraremos solo en aquellas que resulten especialmente interesantes para este trabajo.
 
-LEIBNIZ
+Como hemos comentado antes, empieza a existir un interés por la formalización de la lógica. Esto es de especial interés para nuestro propósito puesto que, para que sea posible la implementación computacional de un objeto, es necesaria su previa formalización.
 
-La figura más importante que vamos a destacar es Leibniz.
+Podemos mencionar a René Descartes (1596 - 1650) como un primer paso en esta dirección; aunque no trabajó explícitamente con esta idea, su objetivo en obras como el \textit{Discurso del Método} era clarificar ideas simples y desarollar un método deductivo concreto que pudiera revelar nuevas verdades\cite{wahl2008port}.
 
-El trabajo de Leibniz en lógica, aunque está realcionado con la teoría de silogismos, tiene como objetivo la construcción de un "cálculo universal" mucho más general. Este cálculo serviría como una herramienta para determinar que inferencias formales son lógicamente validas. Además, Leibniz quería que este cálculo se pudiera aplicar a cualquier proposición para "calcular" su veracidad de una forma puramente mecánica.
+Sin embargo, la mayor contribución en este siglo a la formalización de la lógica es el trabajo de Leibniz. Aunque está realcionado con la teoría de silogismos, su trabajo tiene como objetivo la construcción de un ``cálculo universal" mucho más general. Este cálculo serviría como una herramienta para determinar que inferencias formales son lógicamente validas. Además, Leibniz quería que este cálculo se pudiera aplicar a cualquier proposición para ``calcular" su veracidad de una forma puramente mecánica.
 
 Sabemos que Leibniz elaboró varios borradores buscando esta herramienta con intención de publicarlos, pero nunca llegó a estar satisfecho con el resultado y todos sus trabajos sobre lógica se publicaron póstumamente.
 
-El cálculo más importante desarollado por Leibniz es el "álgebra de conceptos". El punto de comienzo de este modelo es la teoría tradicional aristotélica del silogismo. Tomamos las relaciones entre dos conceptos $A$ y $B$ definidas por Aristóteles:
+El cálculo más importante desarollado por Leibniz es el ``álgebra de conceptos". El punto de comienzo de este modelo es la teoría tradicional aristotélica del silogismo. Recordemos las relaciones entre dos conceptos $A$ y $B$ definidas por Aristóteles:
 
 \begin{displayquote}
     Todo $A$ es un $B$ ($AaB$)\\
@@ -210,7 +190,7 @@ El cálculo más importante desarollado por Leibniz es el "álgebra de conceptos
     Algún $A$ no es un $B$ ($AoB$)\\
 \end{displayquote}
 
-En este contexto, vamos a considerar el concepto "no ser $A$" y lo denotamos como $\bar{A}$. Entonces, las expresiones anteriores se pueden escribir solo en términos de "Todo $A$ es un $B$":
+En este contexto, vamos a considerar el concepto ``no ser $A$" y lo denotamos como $\bar{A}$. Entonces, las expresiones anteriores se pueden escribir solo en términos de ``Todo $A$ es un $B$":
 
 \begin{displayquote}
     Todo $A$ es un $B$ ($AaB$)\\
@@ -221,31 +201,29 @@ En este contexto, vamos a considerar el concepto "no ser $A$" y lo denotamos com
 
 Además, Leibniz hace los siguientes cambios con respecto a la lógica silogista:
 
-
 \begin{enumerate}
-    \item Obvia la palabra "Todo" y escribe simplemente "$A$ es $B$" en su lugar.
-    \item Considera la "conjunción conceptual" que combina dos conceptos $A$ y $B$ en yuxtaposción $AB$.
-    \item Elimina las restriciones tradicionales relacionadas con el numero de premisas y el número de conceptos en las premisas de un silogismo. Es decir, se considera cualquier tipo de inferencia entre sentencias de la forma "$A$ es $B$", donde $A$ y $B$ pueden ser arbitrariamente complejos.
+    \item Obvia la palabra ``Todo" y escribe simplemente ``$A$ es $B$" en su lugar.
+    \item Considera la ``conjunción conceptual" que combina dos conceptos $A$ y $B$ en yuxtaposción $AB$.
+    \item Elimina las restriciones tradicionales relacionadas con el número de premisas y de conceptos en las premisas de un silogismo. Es decir, se considera cualquier tipo de inferencia entre sentencias de la forma ``$A$ es $B$", donde $A$ y $B$ pueden ser arbitrariamente complejas.
 \end{enumerate}
 
-El lenguaje resultante se conoce como "álgebra de conceptos" o $L1$. Una posible axiomatización de $L1$ podría hacerse utilizando solo la negación, la conjunción y la relación de contenido ("$A$ es $B$") como operadores conceptuales primitivos.
+El lenguaje resultante se conoce como ``álgebra de conceptos" o $L1$. Una posible axiomatización de $L1$ podría hacerse utilizando solo la negación, la conjunción y la relación de contenido (``$A$ es $B$") como operadores conceptuales primitivos.
 
 Leibniz hace un estudio extensivo de este sistema, y da una amplia cantidad de propiedades y reglas de inferencia, como por ejemplo la doble negación, la reflexividad y transitividad del contenido, etc.
 
-Por otro lado, la lógica de Leibniz alcanza su máxima extensión con su teroía de "coneptos indefinidos", que, aunque incompleta y defectuosa, era suficientemente clara como para recontruirse sin ambiguedades. El sistema resultante tiene algunas diferencias con la lógica de segundo orden que hoy ocnocemos, pero igualmente constituye un avance hacia la formalización de la teoría de cuantificadores.
+Por otro lado, la lógica de Leibniz alcanza su máxima extensión con su teroía de ``conceptos indefinidos", que, aunque incompleta y defectuosa, era suficientemente clara como para recontruirse sin ambiguedades. El sistema resultante tiene algunas diferencias con la lógica de segundo orden que hoy conocemos, pero igualmente constituye un avance hacia la formalización de la teoría de cuantificadores.
 
-De la misma forma que el propio Leibniz no estuvo satisfecho con su trabajo, muchos logicistas posteriores criticaron su trabajo y lo consideraron inferior al de Boole. Aunque Lewis Carroll consideró que, aunque su trabajo resultó un primer boceto para la lógica simbólica, era algo positivo que Boole no conociera estas innovaciones, pues las suyas supusieron un mejor resultado. Por otro lado, H. Sauer decidió que el cálculo de Leibniz era imperfecto por "no haberse deshecho del viejo error de que todos los conceptos se pueden construir mediante conjunción de otros conceptos más simples, y de que todas las proposiciones se pueden poner de la forma 'A es B', bajo la influencia aristotélica".
+De la misma forma que el propio Leibniz no estuvo satisfecho con su trabajo, muchos lógicos posteriores criticaron su trabajo y lo consideraron inferior al de Boole, que veremos más adelante. Lewis Carroll consideró que, aunque su trabajo resultó un primer boceto para la lógica simbólica, era algo positivo que Boole no conociera estas innovaciones, pues las suyas supusieron un mejor resultado. Por otro lado, H. Sauer decidió que el cálculo de Leibniz era imperfecto por ``no haberse deshecho del viejo error de que todos los conceptos se pueden construir mediante conjunción de otros conceptos más simples, y de que todas las proposiciones se pueden poner de la forma `A es B', bajo la influencia aristotélica".
 
-No fue hasta la mitad de los años ochenta que se demostró mediante pruebas estricas que el álgebra de conceptos de Leibniz es equivalente (o isomórgfica) al álgebra de conjuntos de Boole, y que su teoría de "conceptos indefinidos" constituye una impotante anticipación a la teoría moderna de cuantificadores\cite{lenzen2004leibniz}.
+No fue hasta la mitad de los años ochenta que se demostró mediante pruebas estricas que el álgebra de conceptos de Leibniz es equivalente (o isomórfica) al álgebra de conjuntos de Boole, y que su teoría de ``conceptos indefinidos" constituye una impotante anticipación a la teoría moderna de cuantificadores\cite{lenzen2004leibniz}.
 
-Por último, brevemente destacamos a Kant, que sentó las bases de tres puntos estructurales importantes de la lógica moderna: la distinción entre concepto y objeto, la primaciía de la proposición como unidad del análisis lógico y la concepción de la lógica como estudio de la estructura de sistemas lógicos, en lugar de solo la validez de inferencias específicas\cite{tiles2004kant}.
-
+Por último, brevemente destacamos a Kant, que sentó las bases de tres puntos estructurales importantes de la lógica moderna: la distinción entre concepto y objeto, la primacía de la proposición como unidad del análisis lógico y la concepción de la lógica como estudio de la estructura de sistemas lógicos, en lugar de solo la validez de inferencias específicas\cite{tiles2004kant}.
 
 \section{La matematización de la lógica en el siglo XIX}
 
-Alrededor del año 1850, la lógica era considerada todavía como parte de la filosofía y no de las matemáticas. Al final del siglo, la lógica se convirtió en la intersección de ambas disciplinas. Quizás el primer autor en iniciar este cambio fue De Morgan, con su estudio sistemático de las relaciones lógicas binarias. Su trabajo hizo crecer el interés de los matemáticos por la lógica, creando una audiencia receptiva para las nuevas propuestas lógicas por parte de George Boole. Fue este último el que tuvo el papel más importante en la asimilación de la lógica en las matemáticas\cite{sanchez2004algebra}.
+Alrededor del año 1850, la lógica era considerada todavía como parte de la filosofía y no de las matemáticas. Al final del siglo, la lógica se convirtió en la intersección de ambas disciplinas. Quizás el primer autor en iniciar este cambio fue Augustus De Morgan (1806 - 1871), con su estudio sistemático de las relaciones lógicas binarias. Su trabajo hizo crecer el interés de los matemáticos por la lógica, creando una audiencia receptiva para las nuevas propuestas lógicas por parte de George Boole (1815 - 1864). Fue este último el que tuvo el papel más importante en la asimilación de la lógica en las matemáticas\cite{sanchez2004algebra}.
 
-En 1854, Boole publica su obra \textit{An Investigation of the Laws of Thought on Which are Founded the Mathematical Theories of Logic and Probabilities} o simplemente \textit{The Laws of Thought}\cite{blackburn2005oxford}, en la que Boole pretendía trabajar con problemas lógicos utilizando el siguiente método:
+En 1854, Boole publica su obra \textit{An Investigation of the Laws of Thought on Which are Founded the Mathematical Theories of Logic and Probabilities} o simplemente \textit{The Laws of Thought}\cite{blackburn2005oxford}, en la que pretendía trabajar con problemas lógicos utilizando los siguientes pasos:
 
 \begin{enumerate}
     \item Traducir las proposiciones lógicas en ecuaciones válidas.
@@ -253,33 +231,33 @@ En 1854, Boole publica su obra \textit{An Investigation of the Laws of Thought o
     \item Traducir la solución obtenida, en la medida de lo posible, al lenguaje original\cite{sanchez2004algebra}.
 \end{enumerate}
 
-Cabe destacar que, aunque este trabajo se diferencia muy evidentemente de aquel de Aristóteles y la lógica de silogismos, Boole explicitamente aceptó esta última en \textit{The Laws of Thought} como "una colección de verdades científicas". Sin embargo, también comentó que era "demasiado incompleto como para formar un sistema en sí mismo".
+Cabe destacar que, aunque este trabajo se diferencia muy evidentemente de aquel de Aristóteles y la lógica de silogismos, Boole aceptó explícitamente esta última en \textit{The Laws of Thought} como ``una colección de verdades científicas". Sin embargo, también comentó que era ``demasiado incompleto como para formar un sistema en sí mismo".
 
-Como veremos, Boole también respetó la idea de los silogismos divididos en tres términos, uno de los cuales es "central", siendo probablemente el último logicista que utilizó esta estructura.
+Como veremos, Boole también respetó la idea de los silogismos divididos en tres términos, uno de los cuales es ``central", siendo probablemente el último lógico en utilizar esta estructura.
 
 El objetivo de Boole era, por tanto, preservar los resultados de Aristóteles y a la vez contribuir a su teoría de dos formas. Por un lado, unificar la lógica de silogismos y dotarla de una base algebraico-matemática, y, por otro, ampliarla al incluir más tipos de proposiciones válidas y extender las transformaciones lógicas básicas, de forma que los métodos matemáticos como sustituir iguales por iguales o aplicar la misma operación a ambos lados de una ecuación pudiera utilizarse también en los argumentos silogísticos\cite{boole2003laws}.
 
 \subsection{La lógica algebraica de Boole}
 
-En primer lugar, Boole quiso demostrar que los cuatro conectores de Aristóteles ($a$, $e$, $i$ y $o$) se podían en realidad unificar como uno sólo. Aunque Leibniz había hecho algo parecido, el intento de Boole fue distinto: para él, una proposición del estilo de "\textit{Todo cuadrado es un polígono}" realmente se debería expresar como "\textit{Todo-cuadrado es-exactamente-igual-que algún-polígono}"\footnote{Para entender esto, es más sencillo visualizarlo en lenguaje moderno: "Todo cuadrado ($C$) es un polígono ($P$)" se puede representar como $C \subset P$, de lo que podemos inferir que $\forall c \in C \,\, \exists p \in P, \,\, x = p$. Podríamos ver esta última expresión como "Todo cuadrado es igual a algún polígono".}.
+En primer lugar, Boole quiso demostrar que los cuatro conectores de Aristóteles ($a$, $e$, $i$ y $o$) se podían en realidad unificar como uno sólo. Aunque Leibniz había hecho algo parecido, el intento de Boole fue distinto: para él, una proposición del estilo de ``\textit{Todo cuadrado es un polígono}" realmente se debería expresar como ``\textit{Todo-cuadrado es-exactamente-igual-que algún-polígono}"\footnote{Para entender esto, es más sencillo visualizarlo en lenguaje moderno: ``Todo cuadrado ($C$) es un polígono ($P$)" se puede representar como $C \subset P$, de lo que podemos inferir que $\forall c \in C \,\, \exists p \in P, \,\, c = p$. Podríamos ver esta última expresión como ``Todo cuadrado es igual a algún polígono".}.
 
-Aquí, los cuantificadores "Todo" y "un", que en Aristóteles eran parte del conector (o "centro") del silogismo, para Boole forman parte del sujeto y del predicado. Por tanto, aunque mantiene la estructura de los silogismos aristotélicos, existen algunos cambios.
+Aquí, los cuantificadores ``Todo" y ``un", que en Aristóteles eran parte del conector (o ``centro") del silogismo, para Boole forman parte del sujeto y del predicado. Por tanto, aunque mantiene la estructura de los silogismos aristotélicos, existen algunos cambios.
 
 Una vez tenemos esta equivalencia, es fácil asociar el conector "es-exactamente-igual-que" a la igualdad matemática ($1+2=3$ se suele leer como $1+2$ es $3$).
 
-Sin embargo, es necesario profundizar más. Ahora Boole quiere definir una serie de operaciones de naturaleza algebraica sobre las expresiones en el lenguaje natural. Salimos por tanto de los silogismos y consideramos los conectores lógicos "y", "o" y "no" con los que trabajaba De Morgan. El conector conjuntivo "y" va a ser representada por medio de la multiplicación, · (o yuxtaposición), el disjuntivo "o" mediante la suma, +, y la negación con la resta, -\footnote{Utilizamos notación moderna para facilitar la comprensión, pero Boole no utilizó realmente esta representación}. Notemos que aquí la negación es también una operación binaria.
+Sin embargo, es necesario profundizar más. Boole define una serie de operaciones de naturaleza algebraica sobre las expresiones en el lenguaje natural. Salimos por tanto de los silogismos y consideramos los conectores lógicos "y", "o" y "no" con los que trabajaba De Morgan. El conector conjuntivo "y" va a ser representada por medio de la multiplicación, · (o yuxtaposición), el disjuntivo "o" mediante la suma, +, y la negación con la resta, -\footnote{Utilizamos notación moderna para facilitar la comprensión, pero Boole utilizaba una distinta}. Notemos que aquí la negación es también una operación binaria.
 
-Por ejemplo, la expresión "rectángulo y equilátero" se convierte en ($r \text{·} e$), "rectángulo o círculo" sería ($r + c$), y "rectángulo no cuadrado", ($r - c$).
+Por ejemplo, la expresión ``rectángulo y equilátero" se convierte en ($r \text{·} e$), ``rectángulo o círculo" sería ($r + c$), y, ``rectángulo no cuadrado", ($r - c$).
 
-Con estas herramientas, el cambio de una expresión lógica a una ecuación se hace de la siguiente forma: "Todo A es un B" es entonces equivalente a "Ser A es (ser A y ser B)", lo cuál escribimos como $A = A \text{·} B$ o $A = AB$.
+Con estas herramientas, el cambio de una expresión lógica a una ecuación se hace de la siguiente forma: ``Todo A es un B" es entonces equivalente a ``Ser A es (ser A y ser B)", lo cuál escribimos como $A = A \text{·} B$ o $A = AB$.
 
-Además, al contrario que Aristóteles, Boole consideró el concepto universal de "entidad" (todos los objetos satisfacen "ser una entidad") y el concepto nulo de "no-entidad" o "nada" (ningún objeto satisface ser una "no-entidad"). Boole vio una oportunidad para considerar la unidad multiplicativa, el 1, para expresar el término universal, y la unidad aditiva, el 0, para expresar el término nulo. De esta forma, se verificaban propiedades algebraicas como por ejemplo: decir "cuadrado y entidad" es lo mismo que decir simplemente "cuadrado" ($c \text{·} 1 = c$), y decir "cuadrado o nada" es lo mismo que decir "cuadrado" ($c + 0 = c$).
+Además, al contrario que Aristóteles, Boole consideró el concepto universal de ``entidad" (todos los objetos satisfacen ``ser una entidad") y el concepto nulo de ``no-entidad" o ``nada" (ningún objeto satisface ser una ``no-entidad"). Boole vio una oportunidad para considerar la unidad multiplicativa, el 1, para expresar el término universal, y la unidad aditiva, el 0, para expresar el término nulo. De esta forma, se verificaban propiedades algebraicas, como por ejemplo: decir ``cuadrado y entidad" es lo mismo que decir simplemente "cuadrado" ($c \text{·} 1 = c$), y decir ``cuadrado o nada" es lo mismo que decir "cuadrado" ($c + 0 = c$).
 
 Por último, Boole consideró distintos tipos de proposiciones complejas más allá de los límites de dos términos de Aristóteles.
 
-Respecto a las inferencias silogísticas, destacamos lo siguiente: para la lógica aristotélica, era fundamental el hecho de que las deducciones se dividieran en una serie de pasos que consideraba "inmediatos" y por tanto "perfectos". Sin embargo, aquellas deducciones que para Aristóteles eran inmediatas, para Boole requerían varios pasos intermedios\cite{boole2003laws}.
+Respecto a las inferencias silogísticas, destacamos lo siguiente: para la lógica aristotélica, era fundamental el hecho de que las deducciones se dividieran en una serie de pasos que consideraba ``inmediatos" y por tanto ``perfectos". Sin embargo, aquellas deducciones que para Aristóteles eran inmediatas, para Boole requerían varios pasos intermedios\cite{boole2003laws}.
 
-Veamos un ejemplo. De las premisas "Todo A es B" y "Todo B es C", Aristóteles infería directamtente que "Todo A es C". Para Boole, es más complicado; partimos de las premisas $A = AB$ (1) y $B = BC$ (2), y queremos llegar a que $A = AC$. Entonces\cite{gasser2000john}
+Como ejemplo, de las premisas ``Todo A es B" y ``Todo B es C", Aristóteles infería directamtente que ``Todo A es C". Para Boole, es más complicado; partimos de las premisas $A = AB$ (1) y $B = BC$ (2), y queremos llegar a que $A = AC$. Entonces\cite{gasser2000john}
 
 $$
    A = AB \overset{(2)}{\implies} A = A(BC) \overset{asoc.}{\implies} A = (AB)C \overset{(1)}{\implies} A = AC
@@ -291,7 +269,7 @@ Para terminar, es necesario comentar que, a pesar de que Boole consiguió su obj
 
 Por un lado, el razonamiento indirecto (la reducción al absurdo), presente en el trabajo de Aristóteles, está omitido completamente del de Boole; no hace mención alguna. Es improbable que Boole rechazara esta noción, sino que probablemente no fue capaz de introducirlo en su teoría de manera satisfactoria.
 
-Por otro, y quizás más grave, muchos de los razonamientos de Boole se deben rechazar, después de un estudio detallado, por utilizar argumentos falaces. A este problema se le conoce como la "Falacia de la Solución", porque a menudo se encuentra escondida entre varios pasos confusos de la solución que da a una ecuación. Además, si se eliminan las conclusiones intermedias que Boole había obtenido de forma falaz, quedan huecos que ya no se pueden completar correctamente.
+Por otro, y quizás de manera más grave, muchos de los razonamientos de Boole se deben rechazar, después de un estudio detallado, por utilizar argumentos falaces. A este problema se le conoce como la ``Falacia de la Solución", porque a menudo se encuentra escondida entre varios pasos confusos de la solución que da a una ecuación. Además, si se eliminan las conclusiones intermedias que Boole había obtenido de forma falaz, quedan huecos que ya no se pueden completar correctamente.
 
 Boole no pudo por tanto, deducir los análogos ecuacionales de todas las inferencias inmediatas de Aristóteles. En definitiva, la redución de Boole de la lógica silógistica a lógica ecuacional no funciona\cite{sanchez2004algebra}.
 
@@ -299,34 +277,30 @@ Boole no pudo por tanto, deducir los análogos ecuacionales de todas las inferen
 
 La toría de conjuntos es, por un lado, una rama de las matemáticas, pero también es la propia raíz de las matemáticas de la que salen todo el resto de ramas, con quizás sólo la lógica como objeto por debajo de ella\cite{vaught2001set}.
 
-Georg Cantor fue el fundador de esta teoría. Nos centraremos brevemente en sus principales puntos puesto que, aunque su aparición fue fundamental para el posterior desarrollo de la lógica matemática y también es relevante para la comprensión del funcionamiento de lenguajes de programación lógicos, no resulta en sí misma un estudio de la lógica.
+Georg Cantor (1845 - 1918) fue el fundador de esta teoría. Nos centraremos brevemente en sus principales puntos puesto que, aunque su aparición fue fundamental para el posterior desarrollo de la lógica matemática y también es relevante para la comprensión del funcionamiento de lenguajes de programación lógicos, no resulta en sí misma un estudio de la lógica.
 
-El concepto fundamental de la teoría de conjuntos es efectivamente el conjunto. Para Cantor, un \textit{conjunto} $S$ es una colección de objetos definidos y distinguibles de nuestra intuición o de nuestro intelecto que se conciben como un todo. A estos objetos les llama \textit{elementos} o \textit{miembros} de $S$.
+El concepto fundamental de la teoría de conjuntos es, efectivamente, el conjunto. Para Cantor, un \textit{conjunto} $S$ es una colección de objetos definidos y distinguibles de nuestra intuición o de nuestro intelecto que se conciben como un todo. A estos objetos les llama \textit{elementos} o \textit{miembros} de $S$.
 
-La idea esencial del concepto de Cantor es que una colección de objetos debe ser considerarda como una única entidad. Además, introduce el concepto de pertenencia a un conjunto: dado un objeto $x$ y un conjunto $S$, la aserción "$x$ es un elemento de $S$" debe poder ser clasificable como verdadera o falsa.
+La idea esencial del concepto de Cantor es que una colección de objetos debe ser considerarda como una única entidad. Además, introduce el concepto de pertenencia a un conjunto: dado un objeto $x$ y un conjunto $S$, la aserción ``$x$ es un elemento de $S$" debe poder ser clasificable como verdadera o falsa.
 
-Introduce entonces toda una serie de conceptos que ya conocemos: la igualdad entre conjuntos, la inclusión entre conjuntos, el conjunto vacío, el complementario de un subconjunto, las operaciones entre conjuntos (intersección y unión), etc, y se prueban una serie de resultados que conforman lo que conocemos como "álgebra de conjuntos".
+Introduce entonces toda una serie de conceptos que ya conocemos: la igualdad entre conjuntos, la inclusión entre conjuntos, el conjunto vacío, el complementario de un subconjunto, las operaciones entre conjuntos (intersección y unión), etc, y se prueban una serie de resultados que conforman lo que conocemos como ``álgebra de conjuntos".
 
 Por otro lado y de manera igualmente relevante, Cantor trabajó ampliamente con el concepto de infinito, considerando conjuntos de cardinalidad numerable y no numerable. Este trabajo plantea ciertos límites sobre la posibilidad de trabajar con estructuras infinitas computacionalmente\cite{stoll1979set}.
 
-\subsection{La lógica de oredicados de Frege}
+\subsection{La lógica de predicados de Frege}
 
-El sistema lógico que Frege propone en su obra \textit{Begriffsschrift} (\textit{Escritura Conceptual}, 1879) es, básicamente, la lógica moderna como hoy la conocemos, salvo muy pequeñas diferencias.
-
-Escribiremos su modelo en lenguaje moderno, aunque él utilizaba otra simbología más complicada.
-
-Consideremos los siguientes elementos:
+El sistema lógico que Gottlob Frege (1848 - 1925) propone en su obra \textit{Begriffsschrift} (\textit{Escritura Conceptual}, 1879) es, básicamente, la lógica moderna como hoy la conocemos, salvo muy pequeñas diferencias. Escribiremos su modelo en lenguaje moderno, aunque él utilizaba otra simbología más complicada. Consideremos los siguientes elementos:
 
 \begin{itemize}
     \item Los símbolos $\Gamma, \Delta, \Lambda, ...$ representan un contenido (una sentencia) de un predicado, que debe poder ser valorado como cierto o falso. 
-    \item El símbolo $\vdash$ representa una aserción. Por ejemplo, $\vdash \Gamma$ querría decir "la circunstancia $\Gamma$ es un hecho".
+    \item El símbolo $\vdash$ representa una aserción. Por ejemplo, $\vdash \Gamma$ quiere decir ``la circunstancia $\Gamma$ es un hecho".
     \item Las operaciones primitivas implicación ($\rightarrow$) y negación ($\lnot$).
     
     Dado un predicado $\Gamma$, afirmar $\lnot \Gamma$ es afirmar que no es cierto $\Gamma$.
     
-    Dados predicados $\Gamma$ y $\Delta$, se afirmar $\Gamma \rightarrow \Delta$ es afirmar que no es cierto "Se niega $\Gamma$ y se afirma $\Delta$", y afirmar que es cierta una de las tres siguientes: "Se afirma $\Gamma$ y se afirma $\Delta$", "Se afirma $\Gamma$ y se niega $\Delta$" o "Se niega $\Gamma$ y se niega $\Delta$"
+    Dados predicados $\Gamma$ y $\Delta$, se afirmar $\Gamma \rightarrow \Delta$ es afirmar que no es cierto ``Se niega $\Gamma$ y se afirma $\Delta$", y afirmar que es cierta una de las tres siguientes: ``Se afirma $\Gamma$ y se afirma $\Delta$", ``Se afirma $\Gamma$ y se niega $\Delta$" o ``Se niega $\Gamma$ y se niega $\Delta$"
 
-    \item El concepto de "identidad", $\Gamma \equiv \Delta$, para expresar que $\Gamma$ y $\Delta$ tienen el mismo contenido.
+    \item El concepto de ``identidad", $\Gamma \equiv \Delta$, para expresar que $\Gamma$ y $\Delta$ tienen el mismo contenido.
     \item Predicados que dependen de variables: escribimos funciones $f(x)$. Por ejemplo, $f(x)$ podría ser el predicado $x + 2 = 2 + x$. Afirmar $f(x)$ tiene un cuantificador implícito; es lo mismo que afirmar $\forall x, f(x)$.
 \end{itemize}
 
@@ -349,7 +323,7 @@ A pesar de que los lenguages lógicos como Prolog se basan en reglas de inferenc
 
 Un sistema deductivo se dice que es \textit{consistente} si ningún par de aserciones del sistema se contradicen entre sí, o, en otras palabras, si dos enunciados se contradicen, entonces al menos uno de los dos no puede ser probado en el sistema\cite{tarski1994introduction}.
 
-En el siglo XX ocurren una serie de descubrimientos??? relacionados con la consistencia de los sistemas formales que hemos visto hasta ahora; por un lado, la paradoja de Russel, y por otro, el objetivo de Hilbert de formalizar el pensamiento matemático que permitiera probar su propia consistencia, obviamente desbaratado más tarde por parte de Gödel.
+En el siglo XX ocurren una serie de descubrimientos relacionados con la consistencia de los sistemas formales que hemos visto hasta ahora; por un lado, la paradoja de Russel, y por otro, el objetivo de Hilbert de formalizar el pensamiento matemático que permitiera probar su propia consistencia, obviamente desbaratado más tarde por parte de Gödel.
 
 \subsection{La paradoja de Russel}
 
@@ -365,7 +339,7 @@ $$
     R \in R \iff R \notin R
 $$
 
-Lo cuál es obviamente contradictorio pues es una proposición de la forma $A \iff \lnot A$.
+Lo cuál es obviamente contradictorio, pues es una proposición de la forma $A \iff \lnot A$.
 
 Esto supone un problema para la teoría de conjuntos de Cantor, pues prueba que no es un sistema consistente. Pero además Russel demostró que una versión de esta paradoja se podía obtener desde el sistema axiomático de Frege: consideramos una función $f(S)$ que toma como variable un conjunto de conjuntos $S$ y $f(S) = S \notin S$. Sea $R$ el conjunto definido por
 
@@ -375,23 +349,19 @@ $$
 
 Es evidente que este conjunto es igual al anterior y por tanto llegaremos a una contradición parecida. En particular, $$f(R) \equiv \lnot f(R)$$
 
-Russel propuso en 1908 una solución a este problema; la teoría de tipos. El estudio de esta teoría queda fuera del alcance de este trabajo, pero que también tiene una estrecha relación con el desarrollo de sistemas lógicos computacionales y se utiliza, por ejemplo, en la formalización de demostraciones matemáticas mediante asistentes de demostración\footnote{Un ejemplo de esto es Lean Theorem Prover, un lenguaje de programación funcional y asistente de demostración basado en teoría de tipos}.
+Russel propuso en 1908 una solución a este problema; la teoría de tipos. El estudio de esta teoría queda fuera del alcance de este trabajo, pero también tiene una estrecha relación con el desarrollo de sistemas lógicos computacionales y se utiliza, por ejemplo, en la formalización de demostraciones matemáticas mediante asistentes de demostración\footnote{Un ejemplo de esto es Lean Theorem Prover, un lenguaje de programación funcional y asistente de demostración basado en teoría de tipos}.
 
 Otra solución distinta fue propuesta en el mismo año por Ernesto Zermelo, con contribuciones de Abraham Fraenkel, que daría lugar a lo que hoy conocemos como lógica de primer orden.
-
-
-Me faltan referencias aquí porque me he agobiado y de hecho hay cosas que he construido un poco de 0.
-
 
 \subsection{El programa de Hilbert y la incompletitud de Gödel}
 
 En el año 1900, David Hilbert protagonizó una charla en la que identificó 23 problemas excepcionales, entre ellos la hipótesis del continuo y la consistencia en matemáticas.
 
-Esto evolucionó un intento por parte de Hilbert de construir un sistema matemático utilizando todas las teorías anteriores, formando un conjunto de axiomas finito y completo (es decir, en el que para cada enunciado, o el propio enunciado o su negación sea derivable de estos axiomas), y en el que se pudiera probar que estos axiomas eran consistentes.
+Esto evolucionó en un intento por parte de Hilbert de construir un sistema matemático utilizando todas las teorías anteriores, formando un conjunto de axiomas finito y completo (es decir, en el que para cada enunciado, o el propio enunciado o su negación sea derivable de estos axiomas), y en el que se pudiera probar que estos axiomas eran consistentes.
 
 Hoy en día sabemos que esto es imposible. En el año 1931, Kurt Gödel publicó sus teoremas de incompletitud, terminando por tanto con el programa de Hilbert\cite{blackburn2005oxford}.
 
-Puesto que los teoremas de Gödel iplican que cualquier sistema formal será, o bien incompleto, ó bien inconsistente, estamos estableciendo un límite también a la capacidad de resolución de problemas matemáticos de los lenguajes de programación basados en lógica, que en el fondo son también sistemas formales.
+Puesto que los teoremas de Gödel iplican que cualquier sistema formal será o bien incompleto, ó bien inconsistente, estamos estableciendo un límite también a la capacidad de resolución de problemas matemáticos de los lenguajes de programación basados en lógica, que en el fondo son también sistemas formales.
 
 Hilbert planteó también lo que se conoce como el problema de decisión, que consiste en encontrar un algotitmo que tome como entrada un enunciado válido en un sistema lógico, y devuelve "sí" o "no" dependiendo de si el enunciado es universalmente válido en este sistema\cite{blackburn2005oxford}.
 
@@ -405,58 +375,19 @@ Aunque el modelo de la máquina de Turing era teórico, sentó las bases de la t
 
 \section{El desarrollo de Prolog}
 
+La programación lógica es un tipo de paradigma de programación dentro del paradigma de programación declarativa, basada en la lógica formal. Un programa lógico es un conjunto de enunciados en un sistema lógico concreto. Computar sobre este programa quiere decir aplicar una serie de razonamientos lógicos (reglas de inferencia) sobre estos enunciados, para resolver algún problema.
 
-Llegamos por fin:)))))))
+En cualquier lenguaje de programación lógico, estas reglas de inferencia se escriben en la forma de cláusulas, de la forma
 
+\begin{displayquote}
+    $A$ :- $B_1 , ..., B_n$,
+\end{displayquote}
 
+que se lee como "$A$ si $B_1 , ..., B_n$". Decimos que $A$ es la \textit{cabeza} de la regla, mientras que los $B_i$ son las condiciones. Cuando $n=0$, la regla se considera simplemente una aserción. Escribimos simplemente
 
-\subsection{Planner}
-
-\subsection{Prolog}
-
-
-
-
-ORDEN CRONOLÓGICO:
-
-XIX 
-- Boole (1815 - 1864) / The Laws of Thought 1854
-- Cantor (1845 - 1918) / First important papre 1874
-- Frege (1848 - 1925) / Concept Writing 1879
-- Peano (1858 - 1932)
-
-
-
-XX
-- Russel (1872 - 1970)
-- Hilbert (1862-1943) / Problem of consistency 1900
-- Gödel (1906 - 1978) / Teoremas 1932
-- Alan Turing
-- Logic Programming: 1967 Planner / 1972 Prolog
-
-\section{Siglos XIX, XX}
-
-\subsection{Boole}
-
-Orden cronológico de las cosas que están pasando aquí:
-
-1. Lógica simbólica: desarrollo de la
-lógica simbólica en los siglos XIX y XX, momento en el que ocurren varias
-innovaciones, como por ejemplo la renovación de la lógica formal (Boole, De
-Morgan), la aparición de la teoría de conjuntos (Cantor), la teoría de tipos
-(Russel)
-
-2. 1930: Kurt Gödel proved the Completeness Theorem, which states that if a formula is logically valid in first-order logic, it is provable in its formal system. This was part of his doctoral dissertation.
-
-3. 1936: Alan Turing introduced the concept of the Turing machine in his paper "On Computable Numbers, with an Application to the Entscheidungsproblem (= Decidability problem)", laying the foundation for computability theory.
-
-4. Apparition of Logic Programming (Planner and Prolog) 
-1967: Planner, developed by Carl Hewitt, introduced concepts of logical inference and goal-directed reasoning., Prolog in 1972
-
-5. 1971: Stephen Cook introduced the concept of NP in his landmark paper, "The Complexity of Theorem-Proving Procedures". This formalized the class of decision problems verifiable in polynomial time by a nondeterministic Turing machine.
-
-Yo creo que este es un buen timeline y sería ir desarrollando estos conceptos y tal de forma que se vayan conectando entre sí y al concepto de la lógica
-
+\begin{displayquote}
+    $A$.
+\end{displayquote}
 
 
 % Bibliografía
