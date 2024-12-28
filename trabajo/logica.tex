@@ -311,7 +311,7 @@ Por otro lado y de manera igualmente relevante, Cantor trabajó ampliamente con 
 
 \subsection{La lógica de oredicados de Frege}
 
-El sistema lógico que Frege propone en su obra \textit{Begriffsschrift} (\textit{Escritura Conceptual}, 1879) es, básicamente, la lógica moderna como hoy la conocemos, salvo muy pequeñas diferencias\cite{sullivan2004frege}.
+El sistema lógico que Frege propone en su obra \textit{Begriffsschrift} (\textit{Escritura Conceptual}, 1879) es, básicamente, la lógica moderna como hoy la conocemos, salvo muy pequeñas diferencias.
 
 Escribiremos su modelo en lenguaje moderno, aunque él utilizaba otra simbología más complicada.
 
@@ -327,10 +327,10 @@ Consideremos los siguientes elementos:
     Dados predicados $\Gamma$ y $\Delta$, se afirmar $\Gamma \rightarrow \Delta$ es afirmar que no es cierto "Se niega $\Gamma$ y se afirma $\Delta$", y afirmar que es cierta una de las tres siguientes: "Se afirma $\Gamma$ y se afirma $\Delta$", "Se afirma $\Gamma$ y se niega $\Delta$" o "Se niega $\Gamma$ y se niega $\Delta$"
 
     \item El concepto de "identidad", $\Gamma \equiv \Delta$, para expresar que $\Gamma$ y $\Delta$ tienen el mismo contenido.
-    \item Predicados que dependen de variables: escribimos funciones $f(x)$. Afirmar $f(x)$ tiene un cuantificador implícito; es lo mismo que afirmar $\forall x, f(x)$.
+    \item Predicados que dependen de variables: escribimos funciones $f(x)$. Por ejemplo, $f(x)$ podría ser el predicado $x + 2 = 2 + x$. Afirmar $f(x)$ tiene un cuantificador implícito; es lo mismo que afirmar $\forall x, f(x)$.
 \end{itemize}
 
-Con estos elementos, Frege construye una serie de axiomas en los que se basa su sistema:
+Con estos elementos, Frege construye una serie de axiomas en los que se basa su sistema\cite{sullivan2004frege}:
 
 \begin{enumerate}
     \item $a \rightarrow (b \rightarrow a)$
@@ -347,8 +347,36 @@ A pesar de que los lenguages lógicos como Prolog se basan en reglas de inferenc
 
 \section{El problema de la consistencia en el siglo XX}
 
-\subsection{La paradoja de Russel?}
+\subsection{La paradoja de Russel}
 
+En 1901, Bertrand Russel publicó la siguiente paradoja. Sea $R$ el conjunto de todos los conjuntos que no son miembros de si mismos. Es decir,
+
+$$
+    R = \{S \,\, \text{conjunto} \,\, | \,\, S \notin S\}
+$$
+
+Nos hacemos la siguiente pregunta: ¿Es $R$ un elemento de $R$? Si $R$ es un elemento de $R$, es decir, de sí mismo, entonces no satisface la condición que define a $R$, luego $R$ no es un elemento de $R$. Pero si $R$ no es un elemento de $R$, entonces cumple la condición, y por tanto $R$ es un elemento de $R$. Luego hemos llegado a que
+
+$$
+    R \in R \iff R \notin R
+$$
+
+Lo cuál es obviamente contradictorio pues es una proposición de la forma $A \iff \lnot A$.
+
+Esto supone un problema para la teoría de conjuntos de Cantor, pero además Russel demostró que una versión de esta paradoja se podía obtener desde el sistema axiomático de Frege: consideramos una función $f(S)$ que toma como variable un conjunto de conjuntos $S$ y $f(S) = S \notin S$. Sea $R$ el conjunto definido por
+
+$$
+    R = \{S \,\, \text{conjunto} \,\, | \,\, f(S)\}
+$$
+
+Es evidente que este conjunto es igual al anterior y por tanto llegaremos a una contradición parecida. En particular, $$f(R) \equiv \lnot f(R)$$
+
+Russel propuso en 1908 una solución a este problema; la teoría de tipos. El estudio de esta teoría queda fuera del alcance de este trabajo, pero que también tiene una estrecha relación con el desarrollo de sistemas lógicos computacionales y se utiliza, por ejemplo, en la formalización de demostraciones matemáticas mediante asistentes de demostración\footnote{Un ejemplo de esto es Lean Theorem Prover, un lenguaje de programación funcional y asistente de demostración basado en teoría de tipos}.
+
+Otra solución distinta fue propuesta en el mismo año por Ernesto Zermelo, con contribuciones de Abraham Fraenkel, que daría lugar a lo que hoy conocemos como lógica de primer orden.
+
+
+Me faltan referencias aquí porque me he agobiado y de hecho hay cosas que he construido un poco de 0.
 
 
 
