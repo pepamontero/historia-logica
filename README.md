@@ -6,12 +6,16 @@ Se puede leer la última versión del trabajo [aquí](https://github.com/pepamon
 
 ## Contenido del repositorio
 
+```
 historia-logica/
 ├── historia-logica.pdf
 ├── trabajo/
 │   ├── logica.tex
 │   └── references.bib
 └── README.md
+```
+
+El archivo principal es `historia-logica.pdf`, que contiene el texto completo del trabajo. La carpeta `trabajo/` incluye el código fuente en LaTeX y la bibliografía utilizada.
 
 ## Resumen
 
