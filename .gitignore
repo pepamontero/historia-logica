@@ -1,4 +1,5 @@
 *.pdf
+!historia-logica.pdf
 referencias/*
 
 # Archivos auxiliares del latex
